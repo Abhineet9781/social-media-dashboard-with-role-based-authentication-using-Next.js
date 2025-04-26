@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Social Media Dashboard - Next.js
 
-## Getting Started
 
-First, run the development server:
+Live Demo: https://socia-media-dashboard-abhineet.netlify.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Demo Credentials
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Admin Login:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Email: admin@example.com
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Password: admin@98765
 
-## Learn More
+User Login:
 
-To learn more about Next.js, take a look at the following resources:
+Email: user@example.com
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Password: user@98765
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Project Overview
+This project is a Social Media Dashboard built using Next.js. It features full authentication, protected routes, role-based access control, dynamic layouts, and real-time content management.
+It demonstrates how to create a scalable, modular dashboard for Admins and Users with different UI experiences.
 
-## Deploy on Vercel
+Features
+1. Authentication System
+Login System:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Built with Mock API (can integrate Firebase/Auth0/local JWT).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Stores user credentials and tokens in Redux Toolkit and localStorage.
+
+Displays user-friendly login error messages (wrong email/password).
+
+Role-Based Login:
+
+Supports two roles:
+
+Admin
+
+User
+
+2. Protected Routes
+Access Control:
+
+Implemented using Next.js App Router.
+
+Only authenticated users can access dashboard pages.
+
+Unauthenticated users are redirected to the login page.
+
+Role-Based Routing:
+
+Admins can access all /admin/* routes.
+
+Regular users can access /dashboard/* routes.
+
+3. Dashboard UI Layout
+Dynamic Dashboard Layouts:
+
+Sidebar with navigation links (Dashboard, Profile, Settings, etc.).
+
+Topbar with user information and a logout button.
+
+Main content area that updates based on the selected route.
+
+Separate Admin and User Layouts:
+
+Admin dashboard includes extra sections like:
+
+User Management
+
+Post Moderation
+
+User dashboard focuses on:
+
+Personal profile
+
+Saved posts
+
+Settings
+
+4. Dashboard Functionalities
+For All Authenticated Users (Admin + User)
+View and edit profile information.
+
+Change password.
+
+View saved/bookmarked posts (connected to Task 1 functionality).
+
+Update profile picture (mock upload supported).
+
+Admin-Only Functionalities
+User Management:
+
+View list of all users.
+
+Edit user roles (switch between Admin/User).
+
+Enable or disable user accounts.
+
+Post Moderation:
+
+View all posts.
+
+Approve or reject pending posts.
+
+Delete inappropriate posts.
+
+5. State Management & Persistence
+Managed via Redux Toolkit.
+
+Persistent states using localStorage.
+
+Auth details and user data are efficiently managed and synchronized across the app.
