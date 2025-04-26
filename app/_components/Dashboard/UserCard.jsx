@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 export default function UserCard({ user }) {
   const [isActive, setIsActive] = useState(user.isActive);
-  const [userData, setUserData] = useState({ email: user.email, role: user.role });
+  const [userData, setUserData] = useState({ email: user.email, name: user.name });
   const [isEditing, setIsEditing] = useState(false);
 
   // Handle Save
@@ -20,7 +20,7 @@ export default function UserCard({ user }) {
     const savedUser = localStorage.getItem(`user-${user.email}`);
     if (savedUser) {
       const parsed = JSON.parse(savedUser);
-      setUserData({ email: parsed.email, role: parsed.role });
+      setUserData({ email: parsed.email, name: parsed.name });
       setIsActive(parsed.isActive);
     }
   });
@@ -29,8 +29,8 @@ export default function UserCard({ user }) {
     <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
       <div className="flex justify-between items-start">
         <div>
-          <h3 className="text-sm font-semibold text-gray-800 ">{userData.email}</h3>
-          <p className="text-sm text-gray-500 mt-1 capitalize">{userData.role}</p>
+          <h3 className="text-xs font-semibold text-gray-800 ">{userData.email}</h3>
+          <p className="text-xs text-gray-500 mt-1 capitalize">{userData.name}</p>
         </div>
         <span
           className={`px-3 py-1 text-xs font-medium rounded-full ${
@@ -79,10 +79,10 @@ export default function UserCard({ user }) {
               />
               <input
                 type="text"
-                value={userData.role}
-                onChange={(e) => setUserData({ ...userData, role: e.target.value })}
+                value={userData.name}
+                onChange={(e) => setUserData({ ...userData, name: e.target.value })}
                 className="border rounded-lg p-2"
-                placeholder="Role"
+                placeholder="name"
               />
             </div>
             <div className="flex justify-end gap-4 mt-6">

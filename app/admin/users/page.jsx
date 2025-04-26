@@ -1,17 +1,21 @@
 import UserCard from '../../_components/Dashboard/UserCard';
 
-const mockUsers = [
-  { id: 1, email: 'admin@example.com', role: 'admin', isActive: true },
-  { id: 2, email: 'user1@example.com', role: 'user', isActive: true },
-  { id: 3, email: 'user2@example.com', role: 'user', isActive: false },
-];
+async function getUsers() {
+  const res = await fetch('http://localhost:3000/api/users');
+  if (!res.ok) {
+    throw new Error('Failed to fetch users');
+  }
+  return res.json();
+}
 
-export default function UserManagement() {
+export default async function UserManagement() {
+  const users = await getUsers();
+
   return (
     <div className="px-6 py-8 bg-gray-50 min-h-screen">
       <h1 className="text-3xl font-semibold text-gray-800 mb-6">User Management</h1>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {mockUsers.map((user) => (
+        {users.map((user) => (
           <UserCard
             key={user.id}
             user={user}
