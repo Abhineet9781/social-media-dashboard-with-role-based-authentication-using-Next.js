@@ -1,7 +1,9 @@
 Social Media Dashboard - Next.js
 
 
-Live Demo: https://socia-media-dashboard-abhineet.netlify.app/
+Live Demo (Netlify): https://socia-media-dashboard-abhineet.netlify.app/ 
+
+Live Demo (Vercel): https://social-media-dashboard-abhineet.vercel.app/
 
 Demo Credentials
 
